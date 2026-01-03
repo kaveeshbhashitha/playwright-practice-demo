@@ -27,3 +27,4 @@ class LoginPage {
 }
 
 module.exports = LoginPage;
+//dummy comment to create a diff
