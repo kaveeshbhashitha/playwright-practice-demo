@@ -1,11 +1,13 @@
 name: Playwright LMS Tests
 
-# Trigger schedule & manual
+# Triggers: push to main, scheduled daily, manual run
 on:
+  push:
+    branches:
+      - main
   schedule:
-    # Runs daily at 7:00 AM UTC https://crontab.cronhub.io/
-    - cron: '5 11 * * *'
-  workflow_dispatch: # allows manual run
+    - cron: '15 11 * * *'  # 4:45 PM IST
+  workflow_dispatch: # allows manual trigger
 
 jobs:
   test:
@@ -13,7 +15,7 @@ jobs:
 
     steps:
       # 1️⃣ Checkout repository
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
       # 2️⃣ Set up Node.js
@@ -30,7 +32,7 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # 5️⃣ Run tests
+      # 5️⃣ Run Playwright tests
       - name: Run Playwright tests
         run: npx playwright test --reporter=html
 
