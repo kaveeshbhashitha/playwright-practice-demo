@@ -1,7 +1,7 @@
 {
   "validUser": {
     "username": "kaveesh-ps20021",
-    "password": "2022MaBkeeH21"
+    "password": "<correct_pw_when_run>"
   },
   "invalidUser": {
     "username": "wrongUser",
